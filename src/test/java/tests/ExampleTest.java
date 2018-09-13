@@ -6,6 +6,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+
 public class ExampleTest {
 
 
@@ -19,6 +22,7 @@ public class ExampleTest {
     @Test
     public void getGoogle(){
         driver.get("Https:google.com");
+        assertThat(driver.getTitle(), equalTo("Artist"));
     }
 
     @AfterClass

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite1" parallel="true">
-    <test name="myTesting" parallel="classes" thread-count="5">
+<suite name="Suite1" parallel="methods">
+    <test name="myTesting" parallel="methods" thread-count="5">
         <classes>
-            <class name="tests.ExampleTest"/>
+            <class name="tests.SmokeTest"/>
         </classes>
 
     </test> <!-- justTest-->
