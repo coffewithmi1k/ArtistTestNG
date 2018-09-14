@@ -23,7 +23,13 @@ public class SmokeTest {
     1. Check WebsiteisOn
     2. Check Log in
     3. Check Sign Up confirmation pop-up
-    4.
+    4. Check that search by Name from the main page works
+    5. Check that search by Event from the main page works
+    6. Check that search by Location works from the main page.
+    7. Check Search by Categories;
+    8. Check search by Event type
+    9. Check main logo redirects to the Home Page.
+
      */
 
     WebDriver driver;
@@ -52,10 +58,8 @@ public class SmokeTest {
         PageNavigator pn = new PageNavigator(driver);
        HomePage onHomePage = pn.openHomePage();
        LoginPage onLoginPage = onHomePage.openLogInPage();
-       //Thread.sleep(3000);
        onLoginPage.fillLogInFields("coffe1@mailinator.com","qwe1156q");
        onLoginPage.clickLogInButton();
-       // Thread.sleep(3000);
        assertThat(onLoginPage.verifyUserLogged().getText(),equalTo("coffe1@mailinator.com"));
 
     }
@@ -63,13 +67,18 @@ public class SmokeTest {
     public void checkUserCanSignUP() throws InterruptedException {
         PageNavigator pn = new PageNavigator(driver);
         HomePage onHomePage = pn.openHomePage();
-       // Thread.sleep(3000);
         SignUpPage onSignUpPage = onHomePage.openSignUpPage();
-       // Thread.sleep(3000);
         onSignUpPage.fillRegisterFields("coffe"+random+"@mailinator.com","qwe1156q");
         onSignUpPage.clickSignUpButton();
-        //Thread.sleep(3000);
         assertThat(onSignUpPage.verifySignUpIsSuccessfull().getText(),equalTo("Welcome to Artist"));
+
+    }
+
+    @Test(description = "Check that search by Name from the main page works")
+    public void checkMainSearchByName() throws InterruptedException {
+        PageNavigator pn = new PageNavigator(driver);
+        HomePage onHomePage = pn.openHomePage();
+
 
     }
 

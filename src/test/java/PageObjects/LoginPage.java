@@ -16,9 +16,9 @@ public class LoginPage extends PageNavigator {
     }
     @Step("Fill log in fields with valid data")
     public void fillLogInFields(String email, String password){
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement myDynamicElement = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
+        driver.findElement(By.id("username")).clear();
         driver.findElement(By.id("username")).sendKeys(email);
         driver.findElement(By.id("reg-password")).sendKeys(password);
     }
